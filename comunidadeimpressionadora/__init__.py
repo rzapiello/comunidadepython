@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-import sqlAlchemy
+import sqlalchemy
 
 import os
 
@@ -23,8 +23,8 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'alert-info'
 
 from comunidadeimpressionadora import  models
-engine = sqlAlchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
-inspector = sqlAlchemy.inspect(engine)
+engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+inspector = sqlalchemy.inspect(engine)
 if not inspector.has_table("usuario"):
     with app.app_context():
         database.drop_all()

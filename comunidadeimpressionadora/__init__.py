@@ -30,6 +30,7 @@ if not inspector.has_table("usuario"):
         database.drop_all()
         database.create_all()
         print("base de dados criada")
-else: print('Base de dados ja existente')
+else:
+    print('Base de dados ja existente')
 
 from comunidadeimpressionadora import routes

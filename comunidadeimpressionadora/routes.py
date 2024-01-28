@@ -36,7 +36,7 @@ def login():
     form_criarconta = FormCriarConta()
     if form_login.validate_on_submit() and 'botao_submit_login' in request.form:
         usuario = Usuario.query.filter_by(email=form_login.email.data).first()
-        if usuario and bcrypt.check_password_hash(usuario.senha, form_login.senha.data):
+        if usuario and bcrypt.check_password_hash(usuario.senha, form_login.senha.data).decode("utf-8"):
             login_user(usuario, remember=form_login.lembrar_dados.data)
             flash(f'Login feito com sucesso no e-mail: {form_login.email.data}', 'alert-success')
 
